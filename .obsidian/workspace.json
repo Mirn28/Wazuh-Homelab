@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Recon & Initial Access.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Recon & Initial Access"
             }
           }
         ]
@@ -186,11 +186,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "1b8c1c91285245f4",
+  "active": "749c54df5cac1eb1",
   "lastOpenFiles": [
+    "README.md",
     "Recon & Initial Access.md",
     "olo.txt",
-    "Welcome.md",
-    "README.md"
+    "Welcome.md"
   ]
 }
