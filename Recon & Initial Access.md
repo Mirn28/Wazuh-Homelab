@@ -17,6 +17,6 @@ Steps: I'll start by starting msfconsole and then finding an exploit that would 
 ![[Pasted image 20260829184702.png]]
 
 Now I'm in. But this shell is pretty clanky and since I'm authenticated as root user, I think I'll just enable ssh so I can ssh into this. `pfSsh.php plaback enablesshd` 
+![[Pasted image 20260829185838.png]]
 
-
-but the issue is about brute forcing that ssh password. I'll figure that out, since the creds for this machine are default.
+Alright ssh is enabled, but the issue is about finding that ssh password. I'll try to bruteforce it, since the creds for this machine are default. I tried hydra and it didnt work so I tried Medusa instead and it worked.
