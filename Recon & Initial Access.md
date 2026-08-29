@@ -5,3 +5,9 @@ by scanning my entire home subnet:
 ![[Pasted image 20260829182412.png]]
 
 Then after looking at the result, I noticed that there was an IP address that nmap assumed to be running a FreeBSD OS. So that's how i identified the firewall's WAN interface.
+
+
+
+Now that I've found the IP, I'll use metasploit to exploit the vulnerability. 
+Steps: I'll start by starting msfconsole and then finding an exploit that would be ideal for my use case.
+- I
