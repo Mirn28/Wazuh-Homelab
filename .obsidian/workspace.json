@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
+                "autoReveal": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -80,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 298.140625
   },
   "right": {
     "id": "b4ae1e75b68de9e1",
@@ -186,21 +186,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "9d96a9b343fac6ee",
+  "active": "1b8c1c91285245f4",
   "lastOpenFiles": [
-    "Pasted image 20260829185838.png",
-    "Pasted image 20260829185834.png",
-    "Pasted image 20260829185808.png",
-    "Pasted image 20260829184702.png",
-    "Pasted image 20260829184456.png",
+    "png's",
     "README.md",
-    "nmap scan.jpg",
-    "Image 1.png",
-    "Image.png",
-    "Pasted image 20260829184237.png",
-    "Pasted image 20260829183639.png",
-    "Pasted image 20260829183538.png",
+    "png's/Pasted image 20260829185834.png",
+    "png's/Pasted image 20260829185838.png",
     "Recon & Initial Access.md",
+    "png's/Pasted image 20260829185808.png",
+    "png's/Pasted image 20260829184702.png",
+    "png's/Pasted image 20260829184456.png",
+    "png's/nmap scan.jpg",
+    "png's/Image 1.png",
+    "png's/Image.png",
+    "png's/Pasted image 20260829184237.png",
+    "png's/Pasted image 20260829183639.png",
     "olo.txt",
     "Welcome.md"
   ]
