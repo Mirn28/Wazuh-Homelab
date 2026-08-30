@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f38990ad93161a7e",
+        "id": "18c19c240eee21d7",
         "type": "tabs",
         "children": [
           {
-            "id": "9d96a9b343fac6ee",
+            "id": "44f3207ffe186062",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Recon & Initial Access.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Recon & Initial Access"
+              "title": "New tab"
             }
           }
         ]
@@ -186,13 +182,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "1b8c1c91285245f4",
+  "active": "44f3207ffe186062",
   "lastOpenFiles": [
+    "Recon & Initial Access.md",
     "png's",
     "README.md",
     "png's/Pasted image 20260829185834.png",
     "png's/Pasted image 20260829185838.png",
-    "Recon & Initial Access.md",
     "png's/Pasted image 20260829185808.png",
     "png's/Pasted image 20260829184702.png",
     "png's/Pasted image 20260829184456.png",
