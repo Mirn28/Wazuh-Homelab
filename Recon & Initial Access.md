@@ -23,8 +23,8 @@ Alright ssh is enabled, but the issue is about finding that ssh password. I'll t
 
 Now that I confirmed that ssh access is working, I want to set up a SOCKS Proxy. 
 - A SOCKS Proxy essentially routes all types of traffic unlike a normal proxy which routes http traffic only. I'll use this to route all traffic via the SSH connection I've established to the firewall. The command I'll use is `ssh -D 9050 root@<IP>`.
-	- This
-- I'm setting up the proxy on: `localhost:9050` and I'll send all my commands through this proxy via 1 of 2 ways:
+	- The -D flag...
+	- I'm setting up the proxy on: `localhost:9050` and I'll send all my commands through this proxy via 1 of 2 ways:
 		1. `proxychains` = if im running non metasploit commands like nmap for example, I must place `proxychains` in front of the command i want to run to ensure it gets sent to the proxy so it can route it to its destinatation.
 		2. When using metasploit, I can just fill in the address of the proxy in the proxy option.
 - I'm using it here to route all my attacks

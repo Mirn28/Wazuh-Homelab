@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Recon & Initial Access.md",
+                "file": "Configuring my lab to be vulnerable.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Recon & Initial Access"
+              "title": "Configuring my lab to be vulnerable"
             }
           }
         ]
@@ -189,6 +189,7 @@
   "active": "44f3207ffe186062",
   "lastOpenFiles": [
     "Recon & Initial Access.md",
+    "Configuring my lab to be vulnerable.md",
     "png's",
     "README.md",
     "png's/Pasted image 20260829185834.png",
