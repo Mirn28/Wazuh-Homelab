@@ -60,3 +60,27 @@ INSERT INTO credentials (hostname, username, password, role, notes) VALUES
 ('WindowsClient01', 'localuser2', 'Password123!', 'local user', ''),
 ('firewall', 'root', 'firewallpass', 'firewall admin', 'Shared with webGUI admin');
 ```
+
+6. Set up a dedicated app user instead of using root for the Flask connection (better practice, and root's default `unix_socket` auth plugin blocks password-based logins from libraries like PyMySQL anyway):
+
+```sql
+CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY 'FlaskPass123!';
+GRANT ALL PRIVILEGES ON homelab.* TO 'flaskuser'@'localhost';
+FLUSH PRIVILEGES;
+```
+- Creates a separate MariaDB user scoped to just the `homelab` database, and grants it full privileges there.
+
+7. Built the vulnerable Flask app (`app.py`) with a basic login form (`login.html`) styled as a simple portal page. The core of the app is this query, which takes the username/password submitted through the form and drops them directly into the SQL string:
+
+```python
+query = f"SELECT hostname, username, password, role, notes FROM credentials WHERE username='{username}' AND password='{password}'"
+```
+- This is the actual vulnerability: user input is concatenated straight into the query instead of being parameterized, so anything typed into the form becomes part of the SQL syntax itself.
+
+8. Ran the app and confirmed normal login worked first (valid creds return a result row, invalid ones don't), then tested the injection itself:
+- Username: `' OR '1'='1`
+- Password: anything
+
+This breaks out of the quoted username string and adds a condition that's always true, so the query ignores the password check entirely and returns every row in the table — hostnames, usernames, passwords, roles, and notes for every account across the lab.
+
+**Result:** confirmed working SQL injection that dumps full lab credentials through the login form, no valid credentials required.
