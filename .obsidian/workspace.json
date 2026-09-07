@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.140625
+    "width": 298.140625,
+    "collapsed": true
   },
   "right": {
     "id": "b4ae1e75b68de9e1",
@@ -189,9 +190,9 @@
   "active": "44f3207ffe186062",
   "lastOpenFiles": [
     "Recon & Initial Access.md",
+    "README.md",
     "Configuring my lab to be vulnerable.md",
     "png's",
-    "README.md",
     "png's/Pasted image 20260829185834.png",
     "png's/Pasted image 20260829185838.png",
     "png's/Pasted image 20260829185808.png",
