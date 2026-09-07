@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Configuring my lab to be vulnerable.md",
+                "file": "Recon & Initial Access.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Configuring my lab to be vulnerable"
+              "title": "Recon & Initial Access"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.140625,
-    "collapsed": true
+    "width": 298.140625
   },
   "right": {
     "id": "b4ae1e75b68de9e1",
@@ -189,9 +188,9 @@
   },
   "active": "44f3207ffe186062",
   "lastOpenFiles": [
+    "Configuring my lab to be vulnerable.md",
     "Recon & Initial Access.md",
     "README.md",
-    "Configuring my lab to be vulnerable.md",
     "png's",
     "png's/Pasted image 20260829185834.png",
     "png's/Pasted image 20260829185838.png",
