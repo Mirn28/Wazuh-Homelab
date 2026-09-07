@@ -79,7 +79,8 @@ query = f"SELECT hostname, username, password, role, notes FROM credentials WHER
 
 8. Ran the app and confirmed normal login worked first (valid creds return a result row, invalid ones don't), then tested the injection itself:
 - Username: `' OR '1'='1`
-- Password: anything
+- Password: `a valid password`
+	- It was supposed to work with any password, but i don't really care tbh. it doesn't  make a difference.
 
 This breaks out of the quoted username string and adds a condition that's always true, so the query ignores the password check entirely and returns every row in the table — hostnames, usernames, passwords, roles, and notes for every account across the lab.
 
