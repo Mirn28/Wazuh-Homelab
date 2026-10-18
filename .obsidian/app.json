@@ -4,5 +4,5 @@
   "spellcheck": false,
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
-  "attachmentFolderPath": "/attachments"
+  "attachmentFolderPath": "attachments"
 }
