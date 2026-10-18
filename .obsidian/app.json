@@ -1,5 +1,8 @@
 {
   "promptDelete": false,
   "settingsPopoutWindow": false,
-  "spellcheck": false
+  "spellcheck": false,
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "/attachments"
 }
