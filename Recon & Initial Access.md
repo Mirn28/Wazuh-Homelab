@@ -30,4 +30,3 @@ Now that I confirmed that ssh access is working, I want to set up a SOCKS Proxy.
 		2. **Metasploit** — set the module's `Proxies` option to `socks5:127.0.0.1:9050` instead.
 
 I'm using this to route my attacks against the internal LAN — since pfSense sits on that internal network as the gateway, any traffic that reaches it through the tunnel gets forwarded onward to internal hosts automatically.
- 
