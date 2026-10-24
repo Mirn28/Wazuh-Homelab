@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pfsense-note-fixed/note.md",
+                "file": "Recon & Initial Access.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "note"
+              "title": "Recon & Initial Access"
             }
           }
         ],
@@ -217,8 +217,9 @@
   },
   "active": "cf3e8d8acaa65bff",
   "lastOpenFiles": [
-    "Configuring my lab to be vulnerable.md",
+    "pfsense-note-fixed/note.md",
     "Recon & Initial Access.md",
+    "Configuring my lab to be vulnerable.md",
     "png's/png's 1/pfsense-shot-12.png",
     "png's/png's 1/pfsense-shot-11.png",
     "png's/png's 1/pfsense-shot-10.png",
@@ -232,7 +233,6 @@
     "png's/png's 1",
     "pfsense-note-fixed.zip",
     "pfsense-note-fixed/png's",
-    "pfsense-note-fixed/note.md",
     "pfsense-note-fixed",
     "Code/app.py.md",
     "Untitled.md",
