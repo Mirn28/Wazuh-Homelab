@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Recon & Initial Access - Flag retrieval.md",
+                "file": "Detection Engineering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Recon & Initial Access - Flag retrieval"
+              "title": "Detection Engineering"
             }
           }
         ],
@@ -215,11 +215,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "1b8c1c91285245f4",
+  "active": "cf3e8d8acaa65bff",
   "lastOpenFiles": [
+    "Recon & Initial Access - Flag retrieval.md",
+    "Detection Engineering.md",
     "Pngs",
-    "Recon & Initial Access - Flag retrieval.md",
-    "Recon & Initial Access - Flag retrieval.md",
     "Configuring my lab to be vulnerable.md",
     "Pngs/png's/png's 1/pfsense-shot-12.png",
     "Pngs/png's/png's 1/pfsense-shot-11.png",
