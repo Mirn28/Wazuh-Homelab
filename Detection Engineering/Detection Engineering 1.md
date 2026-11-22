@@ -159,21 +159,21 @@ In `/var/ossec/etc/decoders/local_decoder.xml`:
 </decoder>
 ```
 
-- **Parent:** `prematch` is a cheap text check that answers "is this my log?"
+- **Parent:** `prematch` is a cheap text check that answers "is this the right log?"
 - **Child:** only runs if the parent matched. `\S+` grabs a whole word, `( )` marks what to capture, `$` means end of line. `<order>` names the captures in order.
 
-**Problem 3:** the manager failed again. I'd named the parent `pfsense_sshd` with an underscore, but the child pointed at `pfsense-sshd` with a hyphen. The child was looking for a parent that didn't exist, which is a fatal config error. I made them match and it worked:
-
+**Problem:** the manager failed again. I'd named the parent `pfsense_sshd` with an underscore, but the child pointed at `pfsense-sshd` with a hyphen. The child was looking for a parent that didn't exist, which is a fatal config error. I made them match and it worked:
 ```
 Phase 2:  name: 'pfsense-sshd'   dstuser: 'root'   srcip: '10.0.0.222'
 ```
 
 Phase 1 still said the hostname was `sshd[3788]:`. A decoder can't change pre-decoding, but it can work around it by matching the message text. The `location` field (`10.10.10.1`) still told me which device sent the log.
 
-**Decoder vs rule (I mixed these up):** a decoder answers "what does this log *say*?" A rule answers "does this *matter*?" Phase 3 still showed 2501 because I hadn't written anything to judge the decoded fields yet.
+**Decoder vs rule (I mixed these up):** A decoder answers "what does this log *say*?" A rule answers "does this *matter*?" 
+- Phase 3 still showed 2501 because I hadn't written anything to judge the decoded fields yet.
 
 ---
-
+# <font color="#4bacc6">Start Here</font>
 ## Part 4: My first custom rules
 
 In `/var/ossec/etc/rules/local_rules.xml`:

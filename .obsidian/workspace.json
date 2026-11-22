@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Det 2.md",
+                "file": "Detection Engineering/Detection Engineering 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Det 2"
+              "title": "Detection Engineering 1"
             }
           },
           {
@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Det 2.md",
+                "file": "Detection Engineering/Detection Engineering 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Det 2"
+              "title": "Detection Engineering 1"
             }
           }
         ],
@@ -231,8 +231,8 @@
   },
   "active": "83e60648927a55d2",
   "lastOpenFiles": [
-    "Detection Engineering/Detection Engineering 1.md",
     "Det 2.md",
+    "Detection Engineering/Detection Engineering 1.md",
     "Configuring my lab to be vulnerable.md",
     "Detection Engineering",
     "Recon & Initial Access - Flag retrieval.md",
