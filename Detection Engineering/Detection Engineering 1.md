@@ -23,7 +23,7 @@ I whitelisted Kali in pfSense's sshguard so it wouldn't block me mid-test. That 
 
 ---
 
-## Part 1: How Wazuh works (refresher)
+## Part 1: How Wazuh works 
 
 Wazuh is three services, each with one job:
 
@@ -55,7 +55,7 @@ My main debugging tool was `wazuh-logtest`. You paste in a raw log line and it s
 
 ### pfSense side
 
-**Status → System Logs → Settings → Remote Logging Options:** I enabled remote logging, pointed it at `10.10.10.20:514`, and ticked **System Events**, which is where sshd logs live. I skipped "Everything" because it floods the manager with noise.
+**Status → System Logs → Settings → Remote Logging Options:** I enabled remote logging on pfsense's GUI, pointed it at the Wazuh server on port `514`. That said, I ran into a few problems while trying to confirm everything was working:
 
 ### Problem 1: logs arriving, but nobody listening
 
@@ -68,14 +68,13 @@ sudo tcpdump -i any udp port 514 -n
 - `udp port 514`: only syslog traffic
 - `-n`: show raw IPs, no DNS lookups
 
-Packets were showing up from `10.10.10.1` as `SYSLOG auth.*`. So pfSense was sending fine. Then:
-
+Packets were showing up from `10.10.10.1` as `SYSLOG auth.*`. So pfSense was sending fine. Then I ran:
 ```bash
 sudo ss -ulnp | grep 514
 ```
 - `-u` UDP, `-l` listening, `-n` numeric ports, `-p` which process owns the socket
 
-That returned **nothing**. The packets hit the network card, but no program was listening, so the OS threw them away. Wazuh was running; it just hadn't been told to accept syslog.
+That returned **nothing**. The packets hit the network card, but no program was listening, so the OS threw them away. Wazuh was running, but it just hadn't been told to accept syslog.
 
 **Fix:** add a second `<remote>` block to `/var/ossec/etc/ossec.conf`, leaving the agent one on 1514 alone:
 
@@ -90,7 +89,7 @@ That returned **nothing**. The packets hit the network card, but no program was 
 
 ### Problem 2: the manager wouldn't start
 
-After the restart, `wazuh-manager` failed with `wazuh-csyslogd: ERROR: (1226)`, a config error. My block looked like this:
+After the restart, `wazuh-manager` failed with `wazuh-csyslogd: ERROR: (1226)`, but it was just a config syntax error. My block looked like this:
 
 ```xml
 <connection>syslog<connection>
@@ -104,25 +103,24 @@ XML notes for myself:
 - Tags must nest properly, and tag names are case-sensitive.
 - The block has to sit inside `<ossec_config>`.
 
-Then `ss` showed `wazuh-remoted` listening on 514.
+After rrunning `ss` command again, it showed `wazuh-remoted` listening on 514 this time.
 
 ### Proving ingestion
 
-The dashboard only shows alerts, so I turned on archiving to see *everything* Wazuh receives. In `ossec.conf` under `<global>`:
+The dashboard only shows alerts, so I turned on archiving to see *everything* that Wazuh receives. In `ossec.conf` under `<global>`:
 
 ```xml
 <logall_json>yes</logall_json>
 ```
 
-Then I watched it while doing failed SSH logins:
-
+Then I watched it while doing deliberate failed SSH logins:
 ```bash
 sudo tail -f /var/ossec/logs/archives/archives.json | grep -i sshd
 ```
 - `tail -f`: follow the file live
 - `grep -i`: case-insensitive filter
 
-Logs were coming through, but there was a problem.
+Logs were coming through, but there was a problem. (look at next section)
 
 ---
 
@@ -138,7 +136,8 @@ Phase 2:  No decoder matched.
 Phase 3:  id: '2501'  syslog: User authentication failure.
 ```
 
-A normal syslog line is `timestamp hostname program[pid]: message`. **pfSense was sending it without a hostname**, so Wazuh grabbed the next word, `sshd[3788]:`, as the hostname. Now it couldn't tell the program was sshd, so none of the sshd decoders ran.
+A normal syslog line is `timestamp hostname program[pid]: message`.
+- **pfSense was sending it without a hostname**, so Wazuh grabbed the next word, `sshd[3788]:`, as the hostname. Now it couldn't tell the program was sshd, so none of the sshd decoders ran.
 
 The only reason I got any alert was rule **2501**, a generic catch-all that matches the words "authentication error" anywhere in a syslog line.
 
