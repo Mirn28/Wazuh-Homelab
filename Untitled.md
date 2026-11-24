@@ -79,8 +79,10 @@ def _find(self, node, value):
     if node.value == value:
         return True
     if node.value < value:
-        return self._find(________, value)   # (2)
-    return self._find(________, value)       # (3)
+        return self._find(node.left, value)   # (2)
+    return self._find(node.right, value)       # (3)
 ```
 
 (4) What's the Big O of `find` on a balanced BST, and on a worst-case BST? What kind of insert order creates the worst case?
+
+Not sure twin. 
