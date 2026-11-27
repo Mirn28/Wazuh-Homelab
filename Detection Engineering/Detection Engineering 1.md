@@ -201,10 +201,9 @@ In `/var/ossec/etc/rules/local_rules.xml`:
 ```
 
 How it works:
-- **Custom rule IDs** must be 100000–120000.
+- **Custom rule IDs** in Wazuh must be 100000–120000.
 - **`<if_sid>`** makes 100100 a *child* of 2501. It only checks events that already matched 2501, and when a child matches, it **replaces** the parent in the alert.
 - **`<decoded_as>`** only matches logs my decoder parsed.
-- **`$(srcip)`** puts decoded fields into the alert text.
 - **`frequency` + `timeframe`** mean "8 matches in 120 seconds."
 - **`<if_matched_sid>`** looks *back in time* at earlier matches of 100100. `if_sid` only checks the current event.
 - **`<same_srcip />`** only counts failures from the same IP. Without it, 8 failures from 8 different machines would trip it.
@@ -216,7 +215,7 @@ sudo /var/ossec/bin/wazuh-analysisd -t
 ```
 - `-t`: test mode. It parses config, decoders and rules, then exits. Silence means it's clean.
 
-This now runs before every restart, so I stop taking the manager down over typos.
+This now runs before every restart, so I stop taking the manager down over typos. wym?
 
 **Logtest result:** I pasted the failure line repeatedly in one session. Logtest remembers earlier events, so the counting works. Pastes 1–7 showed **100100**, and **paste 8 switched to 100101** at level 10 with the MITRE tags. It fired exactly on the threshold.
 
